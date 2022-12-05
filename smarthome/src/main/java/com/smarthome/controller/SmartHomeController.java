@@ -33,7 +33,7 @@ public class SmartHomeController {
             @PathVariable int id,
             @RequestHeader(value = "Accept-Language", required = false) Locale locale
     ) {
-        Sensor sensor = sensorService.getSensor(id);
+        Sensor sensor = sensorService.getSensor(id, locale);
         sensor.add(linkTo(methodOn(SmartHomeController.class)
                         .getSensor(id, locale))
                         .withSelfRel(),
@@ -46,11 +46,11 @@ public class SmartHomeController {
                 linkTo(methodOn(SmartHomeController.class)
                         .deleteSensor(id, locale))
                         .withRel(messages.getMessage("url.delete.name", null, locale)));
-        return ResponseEntity.ok(sensorService.getSensor(id));
+        return ResponseEntity.ok(sensor);
     }
 
     @PostMapping("/sensor")
-    public ResponseEntity<String> createSensor(
+    public ResponseEntity<Sensor> createSensor(
             @RequestBody Sensor sensor,
             @RequestHeader(value = "Accept-Language", required = false) Locale locale
             ) {
