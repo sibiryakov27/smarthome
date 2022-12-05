@@ -11,7 +11,7 @@
 	<groupId>com.smarthome</groupId>
 	<artifactId>smartHome</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>smartHome</name>
+	<name>smarthome</name>
 	<description>Laba</description>
 	<properties>
 		<java.version>11</java.version>
